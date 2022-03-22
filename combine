@@ -1,0 +1,10 @@
+import os
+import pandas as pd
+l=[]
+for root, dirs, files in os.walk("./CICT_PH_Building", topdown=False):
+    for name in files:
+        #print(os.path.join(root, name))
+        globals()[name]=pd.read_excel(os.path.join(root, name),sheet_name=0)
+        l.append(globals()[name])
+   #for name in dirs:
+      #print(os.path.join(root, name))
